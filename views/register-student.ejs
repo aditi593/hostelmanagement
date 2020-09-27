@@ -1,11 +1,92 @@
-<div>
-    <form action="/student/register" method="post">
-        name:<input type="text" name="name">
-        number:<input type="number" name="number">
-        email:<input type="email" name="email">
-        dept:<input type="text" name="dept">
-        add:<input type="text" name="add">
-        Roll:<input type="text" name="roll_no">
-        <input type="submit">
-    </form>
-</div>
+<form action="/student/register" method="post">
+    <div class="container">
+      <h1 class=" text-center">Register Student</h1>
+      <p>Please fill in this form to apply.</p>
+      <hr>
+
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" id="name" required>
+        <br>
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" id="email" required>
+        <br>
+      <label for="number"><b>Contact Number</b></label>
+      <input type="number" placeholder="Enter Number" name="number" id="number" required>
+        <br>
+      <label for="rn"><b>Roll Number</b></label>
+      <input type="text" placeholder="Enter Roll Number" name="roll_no" id="rn" required>
+        <br>
+      <label for="dept"><b>Department</b></label>
+      <input type="text" placeholder="Enter Department" name="dept" id="dept" required>
+        <br>
+      <label for="add"><b>Address</b></label>
+      <textarea class="textarea" type="text" placeholder="Enter Address" name="add" id="add" required rows="5"></textarea>
+      <hr>
+      <input type="checkbox" required>  Once you submit this form check your mail for further details!
+      <hr>
+      <button type="submit" class="registerbtn">Register</button>
+    </div>
+  </form>
+
+<a class="text-center" href="/"><button class="btn btn-primary">Home Page</button></a>
+
+<style>
+            * {box-sizing: border-box}
+
+                /* Add padding to containers */
+                .container {
+                padding: 16px;
+                }
+
+                /* Full-width input fields */
+                input[type=text], input[type=number], input[type=number], input[type=email], textarea {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+                }
+
+                input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+                }
+                input[type=email]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+                }
+
+                /* Overwrite default styles of hr */
+                hr {
+                border: 1px solid #f1f1f1;
+                margin-bottom: 25px;
+                }
+
+                /* Set a style for the submit/register button */
+                .registerbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+                }
+
+                .registerbtn:hover {
+                opacity:1;
+                }
+
+                /* Add a blue text color to links */
+                a {
+                color: dodgerblue;
+                }
+
+                /* Set a grey background color and center the text of the "sign in" section */
+                .signin {
+                background-color: #f1f1f1;
+                text-align: center;
+                }
+</style>

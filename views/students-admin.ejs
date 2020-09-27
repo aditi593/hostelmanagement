@@ -1,3 +1,46 @@
-<% for(var i=0; i<students.length; i++){ %>
-    <p style="background-color: blueviolet;"><%= students[i].name %></p>
-<% } %>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">Hostel Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/admin/register/view">Registers</a>
+        <a class="nav-item nav-link active" href="/admin/students">Students</a>
+        <a class="nav-item nav-link" href="/admin/room">Room</a>
+        <a class="nav-item nav-link" href="/admin/attendence">Attendence</a>
+        <a class="nav-item nav-link" href="/admin/attendence/view">Attendence View</a>
+        <a class="nav-item nav-link" href="/admin/mess">Mess</a>
+        <a class="nav-item nav-link" href="/admin/complaint">Complaints</a>
+        <a class="nav-item nav-link" href="/admin/request">Requests</a>
+        <a class="nav-item nav-link" href="/admin/notice">Notice</a>
+        <a class="nav-item nav-link" href="/users/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <% for(var i=0; i<student.length; i++){ %>
+    <div class="card container">
+        <input class="sr-only" type="text" name="_id" value="<%= student[i]._id %>" id="">
+        <div class="card-header">
+            <%= student[i].name %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= student[i].email %> | <%= student[i].number %></h5>
+          <p class="card-text">Department: <%= student[i].dept %> | Roll No.: <%= student[i].roll_no %></p>
+          <p class="card-text">Address: <%= student[i].add %></p>
+          <p class="card-text">
+            Room Number: <%= student[i].room %>
+            <button class="btn btn-secondary form-control">Edit</button>
+          </p>
+          
+        </div>
+      </div>
+     <br><br>
+    <% } %>
+<style>
+    body{
+        background-color: darkgray;
+    }
+</style>

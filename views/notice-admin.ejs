@@ -1,10 +1,57 @@
-<form action="/admin/notice/add" method="post">
-    Head: <input type="text" name="head">
-    Description: <input type="text" name="description">
-    <input type="submit">
-</form>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">Hostel Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/admin/students">Students</a>
+        <a class="nav-item nav-link" href="/admin/register/view">Registers</a>
+        <a class="nav-item nav-link" href="/admin/room">Room</a>
+        <a class="nav-item nav-link" href="/admin/attendence">Attendence</a>
+        <a class="nav-item nav-link" href="/admin/attendence/view">Attendence View</a>
+        <a class="nav-item nav-link" href="/admin/mess">Mess</a>
+        <a class="nav-item nav-link" href="/admin/complaint">Complaints</a>
+        <a class="nav-item nav-link" href="/admin/request">Requests</a>
+        <a class="nav-item nav-link active" href="/admin/notice">Notice</a>
+        <a class="nav-item nav-link" href="/users/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
 
-<% for(var i=0; i<notice.length; i++){ %>
-    <p style="background-color: blueviolet;"><%= notice[i].head %></p>
-    <a href="/admin/notice/delete/<%= notice[i]._id %>">Archive</a>
-<% } %>
+<h1 class="text-center">Add Notice</h1>
+<form action="/admin/notice/add" method="post" class="container form">
+    <label for="head">Heading of Notice</label><input type="text" name="head" class="form-control" id="head">
+    <label for="des">Description</label><textarea type="text" class="form-control" name="description" id="des" rows="5"></textarea>
+    <input type="submit" class="form-control btn btn-success p-1">
+</form>
+<br><br>
+<hr>
+
+<h1 class="text-center">Previously added notices</h1>
+<table class="table container">
+    <tr>
+        <th>No.</th>
+        <th>Heading</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    <% for(var i=0; i<notice.length; i++){ %>
+        <tr>
+            <td><%= i+1 %></td>
+            <td><%= notice[i].head %></td>
+            <td><%= notice[i].description %></td>
+            <td><a href="/admin/notice/delete/<%= notice[i]._id %>">Archive</a></td>
+        </tr>
+    <% } %>
+</table>
+
+<style>
+  body{
+      background-color: darkgray;
+  }
+  table{
+      background-color: aliceblue;
+  }
+</style>

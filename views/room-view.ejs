@@ -1,13 +1,56 @@
-<h2>Add Room</h2>
-<form action="/admin/room" method="POST">
-    <input type="text" name="room" id="">
-    <input type="submit" name="" id="">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">Hostel Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/admin/register/view">Registers</a>
+        <a class="nav-item nav-link" href="/admin/students">Students</a>
+        <a class="nav-item nav-link active" href="/admin/room">Room</a>
+        <a class="nav-item nav-link" href="/admin/attendence">Attendence</a>
+        <a class="nav-item nav-link" href="/admin/attendence/view">Attendence View</a>
+        <a class="nav-item nav-link" href="/admin/mess">Mess</a>
+        <a class="nav-item nav-link" href="/admin/complaint">Complaints</a>
+        <a class="nav-item nav-link" href="/admin/request">Requests</a>
+        <a class="nav-item nav-link" href="/admin/notice">Notice</a>
+        <a class="nav-item nav-link" href="/users/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+
+<h2 class="text-center">Add Room</h2>
+<form action="/admin/room" method="POST" class="container">
+    <label for="rm_n">Room No.</label>
+    <input style="width: 150px;" type="text" name="room" class="form-control" id="rm_n">
+    <input class="btn btn-danger" type="submit" name="" id="">
 </form>
 <br><br><br>
 
-<h5>All Rooms</h5>
-<% for(var i=0; i<room.length; i++){ %>
-    <%= room[i] %>
-    <a href="/admin/room/delete/<%= room[i]._id %>">Delete Room</a>
-    <br>
-<% } %>
+<h2 class="text-center">All Rooms</h2>
+<table class="table container">
+    <tr>
+        <th>Room Number</th>
+        <th>Number of Students</th>
+        <th>Action</th>
+    </tr>
+    <% for(var i=0; i<room.length; i++){ %>
+    <tr>
+        <td><%= room[i].room_no %></td>
+        <td><%= room[i].status %></td>
+        <td><a href="/admin/room/delete/<%= room[i]._id %>" class="btn">Delete Room</a></td>
+    </tr>
+    <% } %>
+</table>
+
+
+<style>
+  body{
+      background-color: darkgray;
+  }
+  table{
+      background-color: aliceblue;
+  }
+</style>

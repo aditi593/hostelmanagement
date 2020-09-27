@@ -1,12 +1,78 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">Hostel Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/admin/register/view">Registers</a>
+        <a class="nav-item nav-link" href="/admin/students">Students</a>
+        <a class="nav-item nav-link" href="/admin/room">Room</a>
+        <a class="nav-item nav-link" href="/admin/attendence">Attendence</a>
+        <a class="nav-item nav-link" href="/admin/attendence/view">Attendence View</a>
+        <a class="nav-item nav-link active" href="/admin/mess">Mess</a>
+        <a class="nav-item nav-link" href="/admin/complaint">Complaints</a>
+        <a class="nav-item nav-link" href="/admin/request">Requests</a>
+        <a class="nav-item nav-link" href="/admin/notice">Notice</a>
+        <a class="nav-item nav-link" href="/users/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+<h1 class="text-center">Mess Menu</h1>
 <form action="/admin/mess/update/<%= mess[0]._id %>" method="post">
-    Sunday: <input type="text" name="sun" value="<%= mess[0].sun %>">
-    Monday: <input type="text" name="mon" value="<%= mess[0].mon %>">
-    Tuesday: <input type="text" name="tue" value="<%= mess[0].tue %>">
-    Wednesday: <input type="text" name="wed" value="<%= mess[0].wed %>">
-    Thursday: <input type="text" name="thu" value="<%= mess[0].thu %>">
-    Friday: <input type="text" name="fri" value="<%= mess[0].fri %>">
-    Saturday: <input type="text" name="sat" value="<%= mess[0].sat %>">
-    <br><br>
-    Message: <input type="text" name="message" value="<%= mess[0].message %>">
-    <input type="submit">
+   <table class="container table">
+        <tr>
+            <th>Day</th>
+            <th>Lunch</th>
+            <th>Dinner</th>
+        </tr>
+        <tr>
+            <td>Sunday</td>
+            <td><input type="text" name="lsun" value="<%= mess[0].lsun %>"></td>
+            <td><input type="text" name="sun" value="<%= mess[0].sun %>"></td>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td><input type="text" name="lmon" value="<%= mess[0].lmon %>"></td>
+            <td><input type="text" name="mon" value="<%= mess[0].mon %>"></td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td><input type="text" name="ltue" value="<%= mess[0].ltue %>"></td>
+            <td><input type="text" name="tue" value="<%= mess[0].tue %>"></td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td><input type="text" name="lwed" value="<%= mess[0].lwed %>"></td>
+            <td><input type="text" name="wed" value="<%= mess[0].wed %>"></td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td><input type="text" name="lthu" value="<%= mess[0].lthu %>"></td>
+            <td><input type="text" name="thu" value="<%= mess[0].thu %>"></td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td><input type="text" name="lfri" value="<%= mess[0].lfri %>"></td>
+            <td><input type="text" name="fri" value="<%= mess[0].fri %>"></td>
+        </tr>
+        <tr>
+            <td>Saturday</td>
+            <td><input type="text" name="lsat" value="<%= mess[0].lsat %>"></td>
+            <td><input type="text" name="sat" value="<%= mess[0].sat %>"></td>
+        </tr>
+   </table>
+   <label class="container" for="msg">Add Message</label>
+   <input class="form-control container" id="msg" type="text" name="message" id="" value="<%= mess[0].message %>">
+   <input class="btn btn-primary" style="margin-left: 45%;" type="submit" value="Update">
 </form>
+
+<style>
+    body{
+        background-color: darkgray;
+    }
+    table{
+        background-color: aliceblue;
+    }
+</style>

@@ -1,24 +1,50 @@
-<!-- attrendence adding buttons here dynamec by for -->
-<h1>Attendence</h1>
-<!-- <form action="/attendence" method="post">
-    <% for(var i=0; i<students.length; i++){ %>
-        <input type="checkbox">
-    <% } %>
-</form> -->
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">Hostel Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/admin/register/view">Registers</a>
+        <a class="nav-item nav-link" href="/admin/students">Students</a>
+        <a class="nav-item nav-link" href="/admin/room">Room</a>
+        <a class="nav-item nav-link active" href="/admin/attendence">Attendence</a>
+        <a class="nav-item nav-link" href="/admin/attendence/view">Attendence View</a>
+        <a class="nav-item nav-link" href="/admin/mess">Mess</a>
+        <a class="nav-item nav-link" href="/admin/complaint">Complaints</a>
+        <a class="nav-item nav-link" href="/admin/request">Requests</a>
+        <a class="nav-item nav-link" href="/admin/notice">Notice</a>
+        <a class="nav-item nav-link" href="/users/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
 
-<table id="att">
+<h1 class="text-center">Attendence</h1>
+
+<table class="table container" id="att">
+    <tr>
+        <th>Check</th>
+        <th>Name</th>
+        <th>Roll Number</th>
+        <th>Room Number</th>
+    </tr>
     <% for(var i=0; i<students.length; i++){ %>
         <tr>
-            <td><input id="rn" type="checkbox" value="<%= students[i].name %>"/><label for="rn"><%= students[i].name %></label></td>
+            <td><input id="rn" type="checkbox" value="<%= students[i].roll_no %>"/></td>
+            <td><%= students[i].name %></td>
+            <td><%= students[i].roll_no %></td>
+            <td><%= students[i].room %></td>
         </tr>
     <% } %>
 </table>
 <br />
-<input type = "button" value = "Get" onclick = "GetSelected()" />
-
-<form action="/admin/attendence/add" method="post">
-    <textarea class="textarea" name="rns" id="rns" cols="30" rows="10"></textarea>
-    <input type="submit">
+<input class="btn btn-success" style="margin-left: 45%;" type = "button" value = "Get Attendence" onclick = "GetSelected()" />
+<hr>
+<form action="/admin/attendence/add" method="post" style="padding: 10px;">
+    <label class="container" for="rns">Verify Attendence or Edit:</label>
+    <textarea class="container form-control" name="rns" id="rns" cols="30" rows="10"></textarea>
+    <input class="btn btn-danger" style="margin-left: 45%;" type="submit">
 </form>
 
 <script type="text/javascript">
@@ -35,8 +61,16 @@
             }
         }
          if (selected.length > 0) {
-            alert("Selected values: "+ selected );
             $('textarea').append(selected.join(","));
         }
     };
 </script>
+
+<style>
+    body{
+        background-color: darkgray;
+    }
+    table{
+        background-color: aliceblue;
+    }
+</style>

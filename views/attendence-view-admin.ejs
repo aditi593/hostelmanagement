@@ -1,5 +1,43 @@
-<p>attendence</p>
-<% for(var i=0; i<attendence.length; i++){ %>
-    <p style="color: aquamarine;"><%= attendence[i].roll_no %> <h5><%= attendence[i].createdAt %></h5></p>
-
-<% } %>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">Hostel Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/admin/register/view">Registers</a>
+        <a class="nav-item nav-link" href="/admin/students">Students</a>
+        <a class="nav-item nav-link" href="/admin/room">Room</a>
+        <a class="nav-item nav-link" href="/admin/attendence">Attendence</a>
+        <a class="nav-item nav-link active" href="/admin/attendence/view">Attendence View</a>
+        <a class="nav-item nav-link" href="/admin/mess">Mess</a>
+        <a class="nav-item nav-link" href="/admin/complaint">Complaints</a>
+        <a class="nav-item nav-link" href="/admin/request">Requests</a>
+        <a class="nav-item nav-link" href="/admin/notice">Notice</a>
+        <a class="nav-item nav-link" href="/users/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+<h1 class="text-center">Attendence Record</h1>
+<table class="container table">
+    <tr>
+        <th>Date</th>
+        <th>Attendence</th>
+    </tr>
+    <% for(var i=0; i<attendence.length; i++){ %>
+        <tr>
+            <td><%= attendence[i].createdAt.toDateString() %></td>
+            <td><%= attendence[i].roll_no %></td>
+        </tr>
+    <% } %>
+    
+</table>
+<style>
+  body{
+      background-color: darkgray;
+  }
+  table{
+      background-color: aliceblue;
+  }
+</style>

@@ -88,10 +88,10 @@ router.get('/students', ensureAuthenticated, (req,res,next) =>{
     .exec()
     .then(student => {
       if (student.length >= 1) {
-        res.render('students-admin', {students:student})
+        res.render('students-admin', {student:student})
       }
       else{
-        res.render('students-admin', {students:""})
+        res.render('students-admin', {student:""})
       }
     })
   }
@@ -250,6 +250,13 @@ router.post('/mess/update/:id', ensureAuthenticated, (req,res,next)=>{
           wed: req.body.wed,
           fri: req.body.fri,
           sat: req.body.sat,
+          lsun: req.body.lsun,
+          lmon: req.body.lmon,
+          ltue: req.body.ltue,
+          lthu: req.body.lthu,
+          lwed: req.body.lwed,
+          lfri: req.body.lfri,
+          lsat: req.body.lsat,
           message: req.body.message
         }, 
         function(err, result){
@@ -313,6 +320,7 @@ router.post('/attendence/add', ensureAuthenticated, (req,res,next)=>{
 router.get('/attendence/view', ensureAuthenticated, (req,res,next)=>{
   if(req.user.role == "admin"){
     Attendence.find({  })
+    .sort({createdAt:-1})
     .exec()
     .then(att => {
       if (att.length >= 1) {
