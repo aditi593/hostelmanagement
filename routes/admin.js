@@ -19,21 +19,26 @@ const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 
 //all requests to show for admin
 router.get('/register/view', ensureAuthenticated, (req,res,next)=>{
-  var rm;
+  var rm=[];
     if(req.user.role == "admin"){
       Room.find({  })
           .exec()
           .then(room => {
-            rm = room;
+            for(let i=0;i<room.length; i++){
+              if(room[i].status <= 3){
+                rm.push(room[i]);
+              }
+            }
           })
       Student.find({ status: "deactive" })
       .exec()
       .then(student => {
         if (student.length >= 1) {
-          res.render('register-view', {student:student, room:rm})
+          JSON.stringify(rm);
+          res.render('register-view', {student:student, rm:rm})
         }
         else{
-          res.render('register-view', {student:"", room:rm})
+          res.render('register-view', {student:"", rm:rm})
         }
       })
     }

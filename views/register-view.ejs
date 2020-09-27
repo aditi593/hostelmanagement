@@ -1,8 +1,17 @@
 <% for(var i=0; i<student.length; i++){ %>
     <form action="/admin/register/add" method="post">
         Name: <p><%= student[i].name %></p>
-        ID: <input type="text" name="_id" value="<%= student[i]._id %>" id="">
-        Enter Room No to Allocate: <input type="number" name="room">
+        ID: <%= student[i]._id %>
+        <input class="sr-only" type="text" name="_id" value="<%= student[i]._id %>" id="">
+        <br>
+        Enter Room No to Allocate: 
+        
+        <select name="room" id="">
+            <option value="room" disabled selected>Select room to allocate</option>
+            <% for(var j=0; j<rm.length; j++){ %>
+                <option value="<%= rm[j].room_no %>"><%= rm[j].room_no %> - <%= rm[j].status %></option>
+            <% } %>
+        </select>
         <input type="submit">
     </form>
 <% } %>
