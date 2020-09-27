@@ -1,0 +1,4 @@
+<% for(var i=0; i<complaint.length; i++){ %>
+    <p style="background-color: blueviolet;"><%= complaint[i].roll_no %></p>
+    <a href="/admin/complaint/add/<%= complaint[i]._id %>">Accept</a>
+<% } %>

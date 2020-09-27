@@ -1,0 +1,10 @@
+<div class="container">
+    <h1 class="text-center">Forget Pasword!</h1>
+    <form  action="/users/forget" method="post">
+        <div class="text-center">
+            <input  type="email" placeholder="Enter Email" name="email" required>
+            <button class="btn btn-primary" type="submit" id="submit">Send Link</button>
+        </div>
+    </form>
+</div>
+<%= message %>

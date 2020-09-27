@@ -1,0 +1,5 @@
+<% for(var i=0; i<request.length; i++){ %>
+    <p style="background-color: aqua;"><%= request[i].description %></p>
+    <a href="/admin/request/add/<%= request[i]._id %>"> approve</a>
+    <%= req.user %>
+<% } %>

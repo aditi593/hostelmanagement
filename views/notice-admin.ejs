@@ -1,0 +1,10 @@
+<form action="/admin/notice/add" method="post">
+    Head: <input type="text" name="head">
+    Description: <input type="text" name="description">
+    <input type="submit">
+</form>
+
+<% for(var i=0; i<notice.length; i++){ %>
+    <p style="background-color: blueviolet;"><%= notice[i].head %></p>
+    <a href="/admin/notice/delete/<%= notice[i]._id %>">Archive</a>
+<% } %>

@@ -1,0 +1,13 @@
+<h2>Add Room</h2>
+<form action="/admin/room" method="POST">
+    <input type="text" name="room" id="">
+    <input type="submit" name="" id="">
+</form>
+<br><br><br>
+
+<h5>All Rooms</h5>
+<% for(var i=0; i<room.length; i++){ %>
+    <%= room[i] %>
+    <a href="/admin/room/delete/<%= room[i]._id %>">Delete Room</a>
+    <br>
+<% } %>

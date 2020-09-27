@@ -1,0 +1,12 @@
+<form action="/admin/mess/update/<%= mess[0]._id %>" method="post">
+    Sunday: <input type="text" name="sun" value="<%= mess[0].sun %>">
+    Monday: <input type="text" name="mon" value="<%= mess[0].mon %>">
+    Tuesday: <input type="text" name="tue" value="<%= mess[0].tue %>">
+    Wednesday: <input type="text" name="wed" value="<%= mess[0].wed %>">
+    Thursday: <input type="text" name="thu" value="<%= mess[0].thu %>">
+    Friday: <input type="text" name="fri" value="<%= mess[0].fri %>">
+    Saturday: <input type="text" name="sat" value="<%= mess[0].sat %>">
+    <br><br>
+    Message: <input type="text" name="message" value="<%= mess[0].message %>">
+    <input type="submit">
+</form>

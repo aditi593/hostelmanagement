@@ -1,0 +1,10 @@
+<div class="container">
+    <h1 class="text-center">Change Pasword!</h1>
+    <form  action="/users/forget/change/<%= id %>" method="post">
+        <div class="text-center">
+            <input  type="password" placeholder="Password" name="password" required>
+            <button class="btn btn-primary" type="submit" id="submit">Reset</button>
+        </div>
+    </form>
+</div>
+<%= message %>

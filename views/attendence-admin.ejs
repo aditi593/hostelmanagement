@@ -1,0 +1,42 @@
+<!-- attrendence adding buttons here dynamec by for -->
+<h1>Attendence</h1>
+<!-- <form action="/attendence" method="post">
+    <% for(var i=0; i<students.length; i++){ %>
+        <input type="checkbox">
+    <% } %>
+</form> -->
+
+<table id="att">
+    <% for(var i=0; i<students.length; i++){ %>
+        <tr>
+            <td><input id="rn" type="checkbox" value="<%= students[i].name %>"/><label for="rn"><%= students[i].name %></label></td>
+        </tr>
+    <% } %>
+</table>
+<br />
+<input type = "button" value = "Get" onclick = "GetSelected()" />
+
+<form action="/admin/attendence/add" method="post">
+    <textarea class="textarea" name="rns" id="rns" cols="30" rows="10"></textarea>
+    <input type="submit">
+</form>
+
+<script type="text/javascript">
+    function GetSelected() {
+        var selected = new Array();
+ 
+        var att = document.getElementById("att");
+ 
+        var rn = att.getElementsByTagName("INPUT");
+ 
+        for (var i = 0; i < rn.length; i++) {
+            if (rn[i].checked) {
+                selected.push(rn[i].value);
+            }
+        }
+         if (selected.length > 0) {
+            alert("Selected values: "+ selected );
+            $('textarea').append(selected.join(","));
+        }
+    };
+</script>

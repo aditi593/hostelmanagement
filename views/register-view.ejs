@@ -1,0 +1,8 @@
+<% for(var i=0; i<student.length; i++){ %>
+    <form action="/admin/register/add" method="post">
+        Name: <p><%= student[i].name %></p>
+        ID: <input type="text" name="_id" value="<%= student[i]._id %>" id="">
+        Enter Room No to Allocate: <input type="number" name="room">
+        <input type="submit">
+    </form>
+<% } %>
