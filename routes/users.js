@@ -107,7 +107,7 @@ router.post('/forget', forwardAuthenticated, (req,res)=>{
         res.render('forget', {message:"User not found"})
       }
       else{
-        var msg="users/forget/"+user[0].token;
+        var msg="https://managehostel.herokuapp.com/users/forget/"+user[0].token;
         var sub="Password Change"
         var toemail=user[0].email
         // console.log(msg)
