@@ -81,6 +81,50 @@ router.post('/register/add', ensureAuthenticated, (req,res,next)=>{
     }
 });
 
+//Edit Info of student
+router.get('/student/edit/:id', ensureAuthenticated,(req,res,next)=>{
+  if(req.user.role == "admin"){
+    Student.find({ _id: req.params.id })
+    .exec()
+    .then(student => {
+      if (student.length >= 1) {
+        res.render('student-edit', {student:student})
+      }
+      else{
+        res.render('student-edit', {student:""})
+      }
+    })
+  }
+  else{
+    res.send('Unauthorized Access')
+  }
+})
+router.post('/student/edit/:id', ensureAuthenticated,(req,res,next)=>{
+  if(req.user.role == "admin"){
+    var id = req.params.id;
+      Student.findOneAndUpdate({_id:id},
+        {
+          name: req.body.name,
+          roll_no: req.body.roll_no,
+          dept: req.body.dept,
+          email: req.body.email,
+          number: req.body.number,
+          add: req.body.add
+        }, 
+        function(err, result){
+        if(err){
+            res.send(err)
+        }
+        else{
+            res.redirect('/admin/students')
+          }
+      })
+  }
+  else{
+    res.send('Unauthorized Access')
+  }
+})
+
 //all students
 router.get('/students', ensureAuthenticated, (req,res,next) =>{
   if(req.user.role =="admin"){
@@ -240,7 +284,7 @@ router.get('/mess', ensureAuthenticated, (req,res,next)=>{
 })
 router.post('/mess/update/:id', ensureAuthenticated, (req,res,next)=>{
   if(req.user.role == "admin"){
-        var id = req.params.id;
+      var id = req.params.id;
       Mess.findOneAndUpdate({_id:id},
         {
           sun: req.body.sun,
