@@ -35,7 +35,7 @@
       <p class="card-text">Address: <%= student[i].add %></p>
       <p class="card-text">
         Enter Room No to Allocate: 
-        <select name="room" id="">
+        <select name="room" id="" required>
             <option value="room" disabled selected>Select room to allocate</option>
             <% for(var j=0; j<rm.length; j++){ %>
                 <option value="<%= rm[j].room_no %>">Room No: <%= rm[j].room_no %> - Occupied: <%= rm[j].status %></option>

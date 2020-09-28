@@ -39,7 +39,7 @@ router.post('/register', forwardAuthenticated, (req,res,next)=>{
               .then(result => {
                 // console.log(result);
                 sendMail('You have registered',"You have registered for hostel, you will get a confirmation on your mail once your application is accepted.",result.email)
-                res.render('register-student')
+                res.redirect('/')
               })
               .catch(err => {
                 res.send(err)
