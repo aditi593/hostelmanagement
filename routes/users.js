@@ -15,6 +15,10 @@ router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 // Register Page
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 
+router.get('/chat', ensureAuthenticated, (req, res)=>{
+  res.render('chatwindow', {user: req.user});
+})
+
 // Register
 router.post('/register', forwardAuthenticated, (req, res) => {
   const { name, email, password, password2, key } = req.body;
