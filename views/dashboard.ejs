@@ -24,6 +24,7 @@
     <div class="left">
         <h4>Admin Section</h4>
         <h2><%= user.name %></h2>
+        
          
     </div>
     <div class="right">
@@ -33,6 +34,7 @@
                  <div class="data">
                     <h4>Email</h4>
                     <p><%= user.email %></p>
+                    <a href="/chat/chat.html?username=<%= user.name %>&room=Discussion" target="_blank" class="btn btn-danger">Join Discussion chat here</a>
                  </div>
             </div>
         </div>
