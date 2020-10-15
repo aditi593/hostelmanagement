@@ -106,7 +106,7 @@ app.use((error, req, res, next) => {
 });
 
 // Socket Section
-const botName = 'ChatCord Bot';
+const botName = 'Chat Bot';
 
 // Run when client connects
 io.on('connection', socket => {
