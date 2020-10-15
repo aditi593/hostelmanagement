@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
-
+const {register, request, complaint} = require('../config/html');
 // Load Student model
 const Student = require('../models/student');
 const User = require('../models/User');
@@ -67,7 +67,7 @@ router.post('/register/add', ensureAuthenticated, (req,res,next)=>{
               std
                 .save()
                 .then(result => {                  
-                  sendMail("Your Application is Accepted!", "Welcome to our hostel, your application is accepted. Click on forget password to reset your password and login.", result.email)
+                  sendMail("Your Application is Accepted!", register, result.email)
                   res.redirect('/admin/register/view')
                 })
                 .catch(err => {
@@ -440,7 +440,7 @@ function sendMail(sub, msg, tomail){
     from: '"Hostel Management System" <hostelmanagementsystem1@gmail.com>',
     to: tomail,
     subject: sub,
-    text: msg
+    html: msg
   };
   
   transporter.sendMail(mailOptions, function(error, info){

@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const nodemailer = require('nodemailer');
+const welcome = require('../config/html').welcome;
 
 // Load Student model
 const Student = require('../models/student');
@@ -38,7 +39,7 @@ router.post('/register', forwardAuthenticated, (req,res,next)=>{
               .save()
               .then(result => {
                 // console.log(result);
-                sendMail('You have registered',"You have registered for hostel, you will get a confirmation on your mail once your application is accepted.",result.email)
+                sendMail('You have registered',welcome,result.email)
                 res.redirect('/')
               })
               .catch(err => {
@@ -124,7 +125,7 @@ function sendMail(sub, msg, tomail){
     from: '"Hostel Management System" <hostelmanagementsystem1@gmail.com>',
     to: tomail,
     subject: sub,
-    text: msg
+    html: msg
   };
   
   transporter.sendMail(mailOptions, function(error, info){
