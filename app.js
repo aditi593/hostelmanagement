@@ -92,7 +92,6 @@ app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 app.use('/student', require('./routes/student.js'));
 app.use('/admin', require('./routes/admin.js'));
-// app.use('/chats', require('./routes/chat.js'));
 app.use('/chat', ensureAuthenticated, express.static('public'))
 
 //404
@@ -106,7 +105,7 @@ app.use((error, req, res, next) => {
 });
 
 // Socket Section
-const botName = 'ChatCord Bot';
+const botName = 'Chat Bot';
 
 // Run when client connects
 io.on('connection', socket => {
